@@ -39,7 +39,7 @@ def get_clip_data(slug: str, oauth_token: str, client_id: str) -> tuple:
         return mp4_url, clip_info["title"]
 
     raise TypeError(
-        f"We didn't receieve what we wanted. /helix/clips endpoint gave:\n{clip_info}"
+        f"We didn't receive what we wanted. /helix/clips endpoint gave:\n{clip_info}"
     )
 
 

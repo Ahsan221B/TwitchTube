@@ -1,4 +1,5 @@
 import pathlib
+import random
 
 # Note:
 # Changing FRAMES and or RESOLUTION will heavily impact load on CPU.
@@ -10,22 +11,53 @@ CLIP_PATH = PATH + "/clips/{}/{}"
 CHECK_VERSION = True  # see if you're running the latest versions
 DEBUG = True  # If additional/debug information should be printed (True/False)
 
-DATA = ["c xQcOW", "c Trainwreckstv", "g Just Chatting"]
-BLACKLIST = [
-    "c ludwig",
-    "g Pools, Hot Tubs, and Beaches",
-]  # channels/games you dont want to be included in the video
+DATA = ["c a2guapo", "c addison", "c asunaweeb",
+        "c ethos", "c kyedae", "c nosyy", "c odablock",
+        "c revenvalorant", "c s0mcs", "c scream", "c HasanAbi",
+        "c shanks_ttv", "c subroza", "c ventusval", "c wardell",
+        "c shroud", "c nAts", "c TenZ", "c AverageJonas",
+        "c ShahZam", "c Cryocells", "c Horcus", "c lululuvely",
+        "g Valorant"]
 
+# For Japanese Content
+DATA_JP = [
+    "c fps_shaka", "c tennn", "c spygea",
+    "c kamito_jp", "c im_mittiii", "c lazvell", "c neth3",
+    "c takejfps", "c raderaderader", "c suzucharo",
+    "c crowfps__", "c lazvell", "c reitathefps", "c sugarz3ro",
+    "c barcefps", "c zepher", "c cr_rion", "c fps_fisker",
+    "c derialy", "c blackwiz_cs", "c xnfri", "c mintyjp",
+    "c popogachi7", "marin000", "c jpryota", "c Npoint",
+    "c oitan_", "c 21sakurai", "c ow_pepper", "c flaxiey",
+    "c kuukai1022"
+]
+
+# Randomising Order of Content Creators
+random.shuffle(DATA_JP)
+# Extending Game Name
+DATA_JP.extend("g Valorant")
+
+
+BLACKLIST = [
+    "g Overwatch 2",
+    "g Apex Legends",
+    "g Counter-Strike: Global Offensive",
+    "g Fortnite",
+    "g Just Chatting"
+]  # channels/games you don't want to be included in the video
+
+BLACKLIST_JP = [
+
+]
 # twitch
-CLIENT_ID = ""  # Twitch Client ID
-OAUTH_TOKEN = ""  # Twitch OAuth Token
 PERIOD = 24  # how many hours since the clip's creation should've passed e.g. 24, 48 etc 0 for all time
 LANGUAGE = "en"  # en, es, th etc.
+LANGUAGE_JPN = "ja"
 LIMIT = 100  # 1-100
 
 
 # selenium
-ROOT_PROFILE_PATH = r"C:/Users/USERNAME/AppData/Roaming/Mozilla/Firefox/Profiles/r4Nd0m.selenium"  # Path to the Firefox profile where you are logged into YouTube
+ROOT_PROFILE_PATH = r"/Users/macbook/Library/Application Support/Firefox/Profiles/bsd7ebhs.Selenium"  # Path to the Firefox profile where you are logged into YouTube
 EXECUTABLE_PATH = r"geckodriver"
 SLEEP = 3  # How many seconds Firefox should sleep for when uploading
 HEADLESS = True  # If True Firefox will be hidden (True/False)
@@ -34,14 +66,14 @@ HEADLESS = True  # If True Firefox will be hidden (True/False)
 # video options
 RENDER_VIDEO = True  # If clips should be rendered into one video (True/False). If set to False everything else under Video will be ignored
 RESOLUTION = (
-    720,
-    1280,
+    1080,
+    1920,
 )  # Resolution of the rendered video (height, width) for 1080p: ((1080, 1920))
 FRAMES = 30  # Frames per second (30/60)
-VIDEO_LENGTH = 10.5  # Minimum video length in minutes (doesn't always work)
+VIDEO_LENGTH = 15.5  # Minimum video length in minutes (doesn't always work)
 RESIZE_CLIPS = True  # Resize clips to fit RESOLUTION (True/False) If any RESIZE option is set to False the video might end up having a weird resolution
 FILE_NAME = "rendered"  # Name of the rendered video
-ENABLE_INTRO = False  # Enable (True/False)
+ENABLE_INTRO = True  # Enable (True/False)
 RESIZE_INTRO = True  # Resize (True/False) read RESIZE_CLIPS
 INTRO_FILE_PATH = PATH + "/twitchtube/files/intro.mp4"  # Path to video file (str)
 ENABLE_TRANSITION = True
@@ -60,9 +92,9 @@ DELETE_CLIPS = True  # If the downloaded clips should be deleted after rendering
 
 
 # youtube
-TITLE = ""  # youtube title, leave empty for the first clip's title
+TITLE = "Most Watched Valorant Clips Today E1"  # YouTube title, leave empty for the first clip's title
 DESCRIPTION = (
-    "Streamers in this video:\n"  # youtube description, streamers will be added
+    "Our main goal is to bring the valorant gaming community closer by uploading the smart gameplays, key moments and sometimes funny clips from valorant.  We also try helping underrated Valorant pros/streamers to grow more by featuring them in our channel . You can send us the clips on our Discord Channel.\n\nAlso, we try our best to bring you the best and most unique videos, we hope you enjoy it! We spend about 6-8 hours daily working on these videos (searching / filtering / editing) and showing the best game clips combined with creative and high-quality editing.\n\nStreamers in This Video:\n"  # YouTube's description, streamers will be added
 )
 THUMBNAIL = ""  # path to the image file to be set as thumbnail
-TAGS = ["twitch", "just chatting", "xqc"]  # your youtube tags
+TAGS = ["twitch", "valorant", "valorant clips", "valorant highlights", "valorant daily"]  # your youtube tags
